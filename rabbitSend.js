@@ -26,7 +26,8 @@ amqp.connect('amqp://localhost', function(error0, connection) {
   });
 });
  function sendMessage(req,res){
-    var msg="Hellooooo";
+  var {msg}=req.body;
+  console.log(msg)
     sender.sendToQueue(queue,Buffer.from(msg))
     console.log(" [x] Sent %s", msg);
     res.send('Message sent')
